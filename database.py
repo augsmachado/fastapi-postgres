@@ -1,9 +1,8 @@
-from requests import Session
 import sqlalchemy as sql
 import sqlalchemy.ext.declarative as _declarative
 import sqlalchemy.orm as _orm
 
-DATABASE_URL = "postgresql://myuser:password@localhost:5432/fastapi_database"
+DATABASE_URL = "postgresql://postgres:password@localhost:5432/fastapi_database"
 
 engine = sql.create_engine(DATABASE_URL)
 
