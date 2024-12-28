@@ -30,7 +30,7 @@ jobs:
               uses: github/codeql-action/init@v2
               with:
                   languages: ${{ matrix.language }}
-                  queries: +security-extended,security-and-quality,performance
+                  queries: security-extended,security-and-quality
 
             - name: Set up Python
               uses: actions/setup-python@v4
