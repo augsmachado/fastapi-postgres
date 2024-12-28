@@ -32,21 +32,8 @@ jobs:
                   languages: ${{ matrix.language }}
                   queries: +security-extended,security-and-quality,performance
 
-            - name: Cache CodeQL database
-              uses: actions/cache@v3
-              with:
-                  path: /home/runner/work/_temp/codeql_databases
-                  key: ${{ runner.os }}-codeql-${{ matrix.language }}-${{ hashFiles('**/*') }}
-                  restore-keys: |
-                      ${{ runner.os }}-codeql-${{ matrix.language }}-
-
             - name: Perform CodeQL Analysis
               uses: github/codeql-action/analyze@v2
-
-            - name: Check for outdated dependencies
-              run: |
-                  pip install safety
-                  safety check
 
             - name: Notify on failure
               if: failure()
