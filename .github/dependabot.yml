@@ -1,11 +1,55 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
-
+# Dependabot configuration file for automated dependency management
+# Version 2 of the Dependabot configuration schema
 version: 2
+
 updates:
-    - package-ecosystem: "" # See documentation for possible values
-      directory: "/" # Location of package manifests
+    # Python Dependencies Update Configuration
+    - package-ecosystem: "pip" # Manages Python package dependencies
+      directory: "/" # Looks for dependencies in the root directory
       schedule:
-          interval: "weekly"
+          interval: "weekly" # Checks for updates once a week
+      groups:
+          dependencies:
+              patterns:
+                  - "*" # Groups all dependencies together
+      open-pull-requests-limit: 10 # Maximum number of open PRs for pip updates
+      labels:
+          - "dependencies" # Adds a generic dependencies label
+          - "python" # Adds a Python-specific label
+      commit-message:
+          prefix: "chore" # Standardizes commit message prefix
+          include: "scope" # Includes scope in commit message
+
+    # Docker Container Dependencies Update Configuration
+    - package-ecosystem: "docker" # Manages Docker container dependencies
+      directory: "/" # Looks for Dockerfiles in the root directory
+      schedule:
+          interval: "weekly" # Checks for updates once a week
+      groups:
+          containers:
+              patterns:
+                  - "*" # Groups all container dependencies together
+      open-pull-requests-limit: 5 # Maximum number of open PRs for Docker updates
+      labels:
+          - "dependencies" # Adds a generic dependencies label
+          - "docker" # Adds a Docker-specific label
+      commit-message:
+          prefix: "chore" # Standardizes commit message prefix
+          include: "scope" # Includes scope in commit message
+
+    # GitHub Actions Dependencies Update Configuration
+    - package-ecosystem: "github-actions" # Manages GitHub Actions workflow dependencies
+      directory: "/" # Looks for workflow files in the root directory
+      schedule:
+          interval: "weekly" # Checks for updates once a week
+      groups:
+          github-actions:
+              patterns:
+                  - "*" # Groups all GitHub Actions dependencies together
+      open-pull-requests-limit: 3 # Maximum number of open PRs for GitHub Actions updates
+      labels:
+          - "dependencies" # Adds a generic dependencies label
+          - "github-actions" # Adds a GitHub Actions-specific label
+      commit-message:
+          prefix: "chore" # Standardizes commit message prefix
+          include: "scope" # Includes scope in commit message
