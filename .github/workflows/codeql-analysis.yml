@@ -34,15 +34,3 @@ jobs:
 
             - name: Perform CodeQL Analysis
               uses: github/codeql-action/analyze@v2
-
-            - name: Notify on failure
-              if: failure()
-              uses: actions/github-script@v6
-              with:
-                  github-token: ${{secrets.GITHUB_TOKEN}}
-                  script: |
-                      github.rest.issues.create({
-                        ...context.repo,
-                        title: 'CodeQL Analysis Failed',
-                        body: `The CodeQL analysis has failed for commit: ${context.sha}`
-                      });
