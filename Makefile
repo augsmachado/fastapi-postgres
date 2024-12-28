@@ -24,3 +24,8 @@ py-install:
 
 py-run-tests:
 	pytest tests
+
+
+# fastapi commands
+fastapi-run:
+	uvicorn main:app --reload
