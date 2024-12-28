@@ -11,7 +11,7 @@ on:
 jobs:
     analyze:
         name: Analyze
-        runs-on: ubuntu-latest
+        runs-on: ubuntu-24.04
         permissions:
             actions: read
             contents: read
@@ -20,7 +20,7 @@ jobs:
         strategy:
             fail-fast: false
             matrix:
-                language: ["python"]
+                language: ["python", "javascript"]
 
         steps:
             - name: Checkout repository
@@ -31,6 +31,16 @@ jobs:
               with:
                   languages: ${{ matrix.language }}
                   queries: +security-extended,security-and-quality,performance
+
+            - name: Set up Python
+              uses: actions/setup-python@v4
+              with:
+                  python-version: "3.11"
+
+            - name: Install dependencies
+              run: |
+                  python -m pip install --upgrade pip
+                  pip install -r requirements.txt
 
             - name: Perform CodeQL Analysis
               uses: github/codeql-action/analyze@v2
