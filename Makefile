@@ -25,6 +25,9 @@ py-install:
 py-run-tests:
 	pytest tests
 
+# alembic commands
+alembic-init:
+    alembic init alembic
 
 # fastapi commands
 fastapi-run:
