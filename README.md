@@ -4,6 +4,9 @@
 
 A robust web application built with FastAPI, PostgreSQL, and SQLAlchemy, featuring comprehensive database migrations and modern Python development practices.
 
+![Screenshot 2024-12-28 at 2 06 07 AM](https://github.com/user-attachments/assets/7258e20c-bba3-4254-a2a0-6e15110c20ab)
+
+
 ## 🚀 Features
 
 -   FastAPI backend
