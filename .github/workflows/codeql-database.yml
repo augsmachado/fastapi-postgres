@@ -35,7 +35,7 @@ jobs:
 
         steps:
             - name: Checkout repository
-              uses: actions/checkout@v3
+              uses: actions/checkout@v4
 
             - name: Initialize the CodeQL tools
               uses: github/codeql-action/init@v3
@@ -44,7 +44,7 @@ jobs:
                   queries: security-extended,security-and-quality
 
             - name: Set up Python
-              uses: actions/setup-python@v4
+              uses: actions/setup-python@v5
               with:
                   python-version: "3.11" # Specify exact Python version
 
