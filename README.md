@@ -6,7 +6,6 @@ A robust web application built with FastAPI, PostgreSQL, and SQLAlchemy, featuri
 
 ![Screenshot 2024-12-28 at 2 06 07 AM](https://github.com/user-attachments/assets/7258e20c-bba3-4254-a2a0-6e15110c20ab)
 
-
 ## 🚀 Features
 
 -   FastAPI backend
@@ -37,7 +36,7 @@ A robust web application built with FastAPI, PostgreSQL, and SQLAlchemy, featuri
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/yourusername/fastapi-postgres.git
+git clone https://github.com/augsmachado/fastapi-postgres.git
 cd fastapi-postgres
 ```
 
